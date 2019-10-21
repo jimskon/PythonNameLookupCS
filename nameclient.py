@@ -22,8 +22,10 @@ def callNameServer(ltype,name):
     #Create Fifos if they don't exist
     if not path.exists(commandFifoFile):
         os.mkfifo(commandFifoFile)
+        os.chmod(commandFifoFile, 0o777)
     if not path.exists(resultFifoFile):
         os.mkfifo(resultFifoFile)
+        os.chmod(resultFifoFile, 0o777)
     
     commandFifo=open(commandFifoFile, "w")
     resultFifo=open(resultFifoFile, "r")
