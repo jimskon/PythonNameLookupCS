@@ -71,8 +71,10 @@ def nameServer():
   #Create Fifos is they don't exist
   if not path.exists(commandFifoFile):
     os.mkfifo(commandFifoFile)
+    os.chmod(commandFifoFile, 0o777)
   if not path.exists(resultFifoFile):
     os.mkfifo(resultFifoFile)
+    os.chmod(resultFifoFile, 0o777)
 
   print("Building namemaps ...",end="")
   femaleMap=NameMap('dist.female.first')
