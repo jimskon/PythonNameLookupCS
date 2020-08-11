@@ -9,7 +9,7 @@ cgitb.enable()
 
 
 from sortedcontainers import SortedDict
-filePath="/home/class/SoftDev/namedata/"
+filePath="/home/skon/PythonNameLookupCS/namedata/"
 
 class nameEntry:
   """

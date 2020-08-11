@@ -2,10 +2,10 @@
 import os 
 from os import path 
 import sys
-fifoname="skon"  # Unique name for fifos
+fifoname="py"  # Unique name for fifos
 
-commandFifoFile = "/tmp/"+fifoname+"_commandFifo"
-resultFifoFile = "/tmp/"+fifoname+"_resultFifo"
+commandFifoFile = "/home/fifo/"+fifoname+"_commandFifo"
+resultFifoFile = "/home/fifo/"+fifoname+"_resultFifo"
 
 #Create Fifos if they don't exist
 if not path.exists(commandFifoFile):

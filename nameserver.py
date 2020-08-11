@@ -4,7 +4,7 @@ import sys
 
 
 from sortedcontainers import SortedDict
-filePath="/home/class/SoftDev/namedata/"
+filePath="/home/skon/PythonNameLookupCS/namedata/"
 
 class nameEntry:
   """
@@ -64,9 +64,9 @@ class NameMap:
     return result
 
 def nameServer():
-  fifoname="skon" # unique name for fifos
-  commandFifoFile = "/tmp/"+fifoname+"_commandFifo"
-  resultFifoFile = "/tmp/"+fifoname+"_resultFifo"
+  fifoname="py" # unique name for fifos
+  commandFifoFile = "/home/fifo/"+fifoname+"_commandFifo"
+  resultFifoFile = "/home/fifo/"+fifoname+"_resultFifo"
 
   #Create Fifos is they don't exist
   if not path.exists(commandFifoFile):
@@ -84,7 +84,7 @@ def nameServer():
   
   # Main loop.  Wait for message, process it, and return result.  Then loop.
   while True:
-    print("Wating for command");
+    print("Waiting for command");
     commandFifo=open(commandFifoFile, "r")
     resultFifo=open(resultFifoFile, "w")
 
@@ -92,9 +92,9 @@ def nameServer():
     print("Command Recieved: ",line)
     type,name=line.split(",")
 
-    if (type==1):
+    if (type=="Female"):
       data=femaleMap.lookup10(name)
-    elif (type==2):
+    elif (type=="Male"):
       data=maleMap.lookup10(name)
     else:
       data=lastMap.lookup10(name)

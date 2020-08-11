@@ -2,7 +2,7 @@ import os
 from os import path
 import sys
 
-fifoName = "/tmp/scmp318example.fifo"
+fifoName = "/home/fifo/scmp318example.fifo"
 if not path.exists(fifoName):
         os.mkfifo(fifoName)
 

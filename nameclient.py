@@ -12,9 +12,9 @@ import cgi;
 import cgitb
 cgitb.enable()
 
-fifoname="skon"  # Unique name for fifos
-commandFifoFile = "/tmp/"+fifoname+"_commandFifo"
-resultFifoFile = "/tmp/"+fifoname+"_resultFifo"
+fifoname="py"  # Unique name for fifos
+commandFifoFile = "/home/fifo/"+fifoname+"_commandFifo"
+resultFifoFile = "/home/fifo/"+fifoname+"_resultFifo"
 def print_header():
     print ("""Content-type: text/html\n""")
 

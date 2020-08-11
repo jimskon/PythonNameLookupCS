@@ -8,9 +8,9 @@ $(document).ready(function () {
 
     $("#clear").click(clearResults);
 
-    $(".dropdown-menu li a").click(function(){
+    $(".dropdown-menu a").click(function(){
 	console.log("pick!"+$(this).text());
-	$(this).parents(".btn-group").find('.selection').text($(this).text());
+	$(this).parents(".dropdown").find('.selection').text($(this).text());
 	searchType=$(this).text();
     });
 });
@@ -45,9 +45,8 @@ function getMatches() {
     params = "name=" + name + "&type_select=" + searchType;
       $.ajax(
       {
-      type: "POST",
-      url: "/cgi-bin/skon_nameclient.py",
-      data: params,
+      type: "get",
+      url: "/cgi-bin/nameclientCS.py?name=" + name + "&type_select=" + searchType,
       dataType: "text",
       success:  processResults,
       error: function(request, ajaxOptions, thrownError)
