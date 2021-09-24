@@ -4,7 +4,7 @@ import sys
 
 
 from sortedcontainers import SortedDict
-filePath="/home/skon/PythonNameLookupCS/namedata/"
+filePath="/home/class/SoftDev/namedata/"
 
 class nameEntry:
   """
@@ -99,13 +99,14 @@ def nameServer():
     else:
       data=lastMap.lookup10(name)
 
-    # Send results back to caller as a string list
-    result=""
+    # Send results back to caller as JSON
+    result='{"results":['
     for namedata in data:
-      if len(result)==0:
-        result+=namedata[1].name+","+namedata[1].percent+","+namedata[1].rank
-      else:
-        result+=","+namedata[1].name+","+namedata[1].percent+","+namedata[1].rank
+      result+='{"name":"'+namedata[1].name+'","percent":'+namedata[1].percent+',"rank":'+namedata[1].rank+'},'
+    # remove the extra comma at the end
+    result = result[:-1]  
+    result+=']}'
+
     # Print for debugging
     print("Sending:",result)
 

@@ -43,9 +43,9 @@ def main():
     form = cgi.FieldStorage()
     if (form.getvalue("name") and form.getvalue("type_select")):
         print_header()
-        name=form.getvalue("name").upper()
-        ltype=form.getvalue("type_select")
-        result=callNameServer(ltype,name)
+        name = form.getvalue("name").upper()
+        ltype = form.getvalue("type_select")
+        result = callNameServer(ltype,name)
         # Send back to webpage
         print(result)
     else:
