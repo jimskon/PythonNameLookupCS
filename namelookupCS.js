@@ -6,17 +6,21 @@ console.log("Start!");
 searchType="Last";
 // Add a click event for the search button
 document.querySelector("#search-btn").addEventListener("click", (e) => {
+    e.preventDefault();
     getMatches();
 });
 
+// Add event for enter on search
 var search = document.getElementById("search");
-// Respond to enter key                                                                                                              
+// Respond to enter key
+
 search.addEventListener("keyup", function(event) {
-    // Number 13 is the "Enter" key on the keyboard                                                                                  
+    event.preventDefault();
+    // Number 13 is the "Enter" key on the keyboard
     if (event.keyCode === 13) {
-        // Cancel the default action, if needed                                                                                      
+        // Cancel the default action, if needed
         event.preventDefault();
-        // Trigger the button element with a click                                                                                   
+        // Trigger the button element with a click
         command();
     }
 });
