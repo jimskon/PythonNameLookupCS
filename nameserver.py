@@ -90,8 +90,11 @@ def nameServer():
 
     line = commandFifo.read()
     print("Command Recieved: ",line)
-    type,name=line.split(",")
 
+    fields=line.split(",")
+    type = fields[0]
+    name = fields[1]
+    
     if (type=="Female"):
       data=femaleMap.lookup10(name)
     elif (type=="Male"):

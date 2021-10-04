@@ -2,20 +2,25 @@
 // Jim Skon, Kenyon College, 2019
 var searchType;  // Save search type here
 
-// search prarents for a matching selector
-var getClosest = function (elem, selector) {
-	for ( ; elem && elem !== document; elem = elem.parentNode ) {
-		if ( elem.matches( selector ) ) return elem;
-	}
-	return null;
-};
-
 console.log("Start!");
 searchType="Last";
 // Add a click event for the search button
 document.querySelector("#search-btn").addEventListener("click", (e) => {
     getMatches();
 });
+
+var search = document.getElementById("search");
+// Respond to enter key                                                                                                              
+search.addEventListener("keyup", function(event) {
+    // Number 13 is the "Enter" key on the keyboard                                                                                  
+    if (event.keyCode === 13) {
+        // Cancel the default action, if needed                                                                                      
+        event.preventDefault();
+        // Trigger the button element with a click                                                                                   
+        command();
+    }
+});
+
 
 // Add an event listener for each item in the pull down menu
 document.querySelectorAll('.dropdown-menu a').forEach(item => {
